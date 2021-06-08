@@ -11,4 +11,5 @@ route.get("/user", auth_1.default.get_user_by_email);
 route.get("/users", auth_1.default.list_of_users);
 route.post("/login", auth_2.default.login, auth_1.default.login);
 route.post("/register", auth_2.default.register, auth_1.default.register);
+route.put("/Email_Verified", auth_1.default.Email_Verified);
 exports.default = route;

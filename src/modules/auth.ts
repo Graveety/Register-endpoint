@@ -59,6 +59,18 @@ export default class Auth {
         return user.toJson;
     }
 
+    Email_Verified(email: string, isVerified: boolean) {
+
+        
+        const user = this.users.find((user) => user.email.toLowerCase() === email.toLowerCase());
+
+        if (!user) throw "No matching user found";
+
+        if (isVerified !==true && isVerified !==false) throw "Verification failed";
+
+        return user.toJson
+    }
+
 }
 
 

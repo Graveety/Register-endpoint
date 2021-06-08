@@ -10,7 +10,7 @@ var AuthValidation = /** @class */ (function () {
         if (typeof pwd !== "string")
             throw "pwd must be a string";
         if (pwd.length < 6)
-            throw "Password mush not be less than six (6) characters";
+            throw "Password must not be less than six (6) characters";
         // return next();
     };
     /**
@@ -30,6 +30,19 @@ var AuthValidation = /** @class */ (function () {
             throw "Email is required";
         if (!password)
             throw "Password is required";
+        return next();
+    };
+    AuthValidation.is_Verified = function (req, res, next) {
+        var _a = req.body, email = _a.email, isVerified = _a.isVerified;
+        // if (typeof name !== "string") throw "Name is invalid";
+        if (typeof email !== "string")
+            throw "Email is invalid";
+        if (isVerified !== true && isVerified !== false)
+            throw "Verification failed";
+        // if (!name) throw "Name is required";
+        if (!email)
+            throw "Email is required";
+        //if (!isVerified) throw "verification required";
         return next();
     };
     return AuthValidation;

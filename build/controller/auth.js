@@ -27,6 +27,11 @@ var AuthController = /** @class */ (function () {
         var user = auth.getUserByEmail(email || "");
         res.send(user);
     };
+    AuthController.Email_Verified = function (req, res) {
+        var _a = req.body, email = _a.email, isVerified = _a.isVerified;
+        var user = auth.Email_Verified(email, isVerified);
+        res.send({ message: "Account successfully updated", data: user });
+    };
     return AuthController;
 }());
 exports.default = AuthController;

@@ -38,6 +38,14 @@ var Auth = /** @class */ (function () {
             throw "No matching user found";
         return user.toJson;
     };
+    Auth.prototype.Email_Verified = function (email, isVerified) {
+        var user = this.users.find(function (user) { return user.email.toLowerCase() === email.toLowerCase(); });
+        if (!user)
+            throw "No matching user found";
+        if (isVerified !== true && isVerified !== false)
+            throw "Verification failed";
+        return user.toJson;
+    };
     return Auth;
 }());
 exports.default = Auth;

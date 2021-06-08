@@ -13,5 +13,7 @@ route.post("/login", AuthValidation.login, AuthController.login);
 
 route.post("/register", AuthValidation.register, AuthController.register);
 
+route.put("/Email_Verified", AuthController.Email_Verified);
+
 
 export default route;

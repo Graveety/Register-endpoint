@@ -15,7 +15,7 @@ export default class AuthValidation {
 
         if (typeof pwd !== "string") throw "pwd must be a string"
 
-        if (pwd.length < 6) throw "Password mush not be less than six (6) characters";
+        if (pwd.length < 6) throw "Password must not be less than six (6) characters";
 
 
         // return next();
@@ -40,6 +40,25 @@ export default class AuthValidation {
         if (!email) throw "Email is required";
 
         if (!password) throw "Password is required";
+
+        return next()
+    }
+
+    static is_Verified(req: Request, res: Response, next: NextFunction) {
+
+        const { email, isVerified } = req.body;
+
+        // if (typeof name !== "string") throw "Name is invalid";
+
+        if (typeof email !== "string") throw "Email is invalid";
+
+        if (isVerified !==true && isVerified !==false) throw "Verification failed";
+
+        // if (!name) throw "Name is required";
+
+        if (!email) throw "Email is required";
+
+        //if (!isVerified) throw "verification required";
 
         return next()
     }
